@@ -1,0 +1,16 @@
+{
+    "departments": [
+        { "id": 0, "name": "Design"},
+        { "id": 1, "name": "Dev"},
+        { "id": 2, "name": "QA"}
+    ],
+    "employees": [
+        { "id": 0, "name": "Valeria", "department": "Design", "email_company": "valeria@konrad.com", "email_personal": "valeria@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 1, "name": "Eros", "department": "Dev", "email_company": "eros@konrad.com", "email_personal": "eros@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 2, "name": "Enrique", "department": "Dev", "email_company": "enrique@konrad.com", "email_personal": "enrique@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 3, "name": "Esperanza", "department": "QA", "email_company": "esperanza@konrad.com", "email_personal": "esperanza@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 4, "name": "Emily", "department": "Design", "email_company": "emily@konrad.com", "email_personal": "emily@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 5, "name": "Peter", "department": "QA", "email_company": "peter@konrad.com", "email_personal": "peter@gmail.com", "extension": "506", "phone_personal": "88888888"},
+        { "id": 6, "name": "Cloud", "department": "Dev", "email_company": "cloud@konrad.com", "email_personal": "cloud@gmail.com", "extension": "506", "phone_personal": "88888888"}
+    ]
+}
