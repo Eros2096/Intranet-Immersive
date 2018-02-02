@@ -1,9 +1,5 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
-# Useful .gitignore templates: https://github.com/github/gitignore
 
-
-# Created by https://www.gitignore.io/api/osx,node,sass,windows
+# Created by https://www.gitignore.io/api/osx,node,windows
 
 ### Node ###
 # Logs
@@ -93,10 +89,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### Sass ###
-.sass-cache/
-*.css.map
-
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -119,4 +111,4 @@ $RECYCLE.BIN/
 *.lnk
 
 
-# End of https://www.gitignore.io/api/osx,node,sass,windows
+# End of https://www.gitignore.io/api/osx,node,windows

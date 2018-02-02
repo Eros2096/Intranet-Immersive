@@ -7,9 +7,9 @@
   "author": "Eros Hernandez",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --content-base src/",
-    "serve": "json-server --watch db/database.json",
-    "concurrent": "concurrently \"webpack-dev-server --content-base src/\" \"json-server --watch db/database.json\"",
+    "start": "react-scripts start",
+    "start-server": "json-server --watch db/database.json --port 3004",
+    "concurrent": "concurrently \"react-scripts start\" \"yarn start-server\"",
     "build": "webpack -p"
   },
   "dependencies": {
@@ -19,6 +19,14 @@
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.0",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.2.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },
