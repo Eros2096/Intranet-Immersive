@@ -1,21 +1,39 @@
 import React from 'react';
+import DepartmentItem from './departmentItem'
+
 import { array } from 'prop-types';
 import { string } from 'prop-types';
 
-const Department = ({ departments }) => (
-  departments.map(dept =>
-    <tr>          
-      <td>{dept.id}</td>
-      <td>{dept.name}</td>
-    </tr>));
+const Departments = (props) => {
+  return (
+  <div>
+    <h1>Departments:</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>          
+        </tr>
+      </thead>
+      <tbody>
+      {
+        props.departments.map(department => {
+          return <DepartmentItem key={department.id} department={department}/>
+        })
+      }        
+      </tbody>
+    </table>
+  </div>
+  )
+}
 
-Department.propTypes = {  
+Departments.propTypes = {  
   departments: array
 };
 
-Department.defaultProps = {
+Departments.defaultProps = {
     departments: []
 };
 
-export default Department;
+export default Departments;
 

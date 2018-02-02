@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Departments from './departmentComponent.js';
 
-//const uuidv1 = require('uuid/v1');
+import { getDepartments } from './departmentActions';
+// const uuidv1 = require('uuid/v1');
 
-export default class DepartmentContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {      
-      departments: []
-    };
-  }
+class DepartmentContainer extends Component {
+  state = {
+    departments: [],
+  };
 
   componentDidMount() {
-    fetch('http://localhost:3000/departments')
-      .then(response => response.json())
-      .then((depts) => {
-        this.setState({ departments: depts });
-      });
+    this.props.loadData();
   }
 
   render() {
     return (
-  <div>
-        <h1>Departments:</h1>                
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>      
-                </tr>
-            </thead>
-            <tbody>                
-                <Departments departments={this.state.departments} />                  
-            </tbody>
-        </table>        
-  </div>
+      <Departments departments={this.props.departments}/>        
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    loading: state.loading,
+    departments: state.Department.departments,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadData: () => {
+      dispatch(getDepartments());
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DepartmentContainer);
 

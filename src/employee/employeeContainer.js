@@ -1,53 +1,52 @@
 import React, { Component } from 'react';
-import Employees from './employeeComponent.js';
+import { connect } from 'react-redux';
 
-//const uuidv1 = require('uuid/v1');
+import Employees from './employeeComponent';
 
-export default class EmployeeContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  
-      department: '',
-      id: '',
-      name: '',
-      email_company: '',
-      email_personal: '',
-      extension: '',
-      phone_personal: '',
-      employees: []
-    };
-  }
+import { getEmployees } from './employeeActions';
+
+class EmployeeContainer extends Component {
+  state = {
+    department: '',
+    id: '',
+    name: '',
+    email_company: '',
+    email_personal: '',
+    extension: '',
+    phone_personal: '',
+    employees: [],
+  };
 
   componentDidMount() {
-    fetch('http://localhost:3000/employees')
-      .then(response => response.json())
-      .then((empls) => {
-        this.setState({ employees: empls });
-      });
+    this.props.loadData();
   }
 
   render() {
-    return (
-  <div>        
-        <h1>Employees:</h1>                
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Department</th> 
-                    <th scope="col">Company Email</th> 
-                    <th scope="col">Personal Email</th> 
-                    <th scope="col">Extension</th> 
-                    <th scope="col">Personal Phone</th>                     
-                </tr>
-            </thead>
-            <tbody>                
-                <Employees employees={this.state.employees}/>                  
-            </tbody>
-        </table>          
-  </div>
-    );
+    return this.props.loading
+      ?
+    <span className="spinnerBig">
+      <span className="dot1"/>
+      <span className="dot2"/>
+    </span >
+      :      
+      <Employees employees={this.props.employees}/>           
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    loading: state.loading,
+    employees: state.Employee.employees,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadData: () => {
+      dispatch(getEmployees());
+    },
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeContainer);
 

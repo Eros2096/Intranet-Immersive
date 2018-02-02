@@ -1,25 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+
 import DepartmentContainer from './department/departmentContainer.js';
-import EmployeeContainer from './employee/employeeContainer.js';
+import EmployeeContainer from './employee/employeeContainer';
 
 const App = () => (
   <div>
-  <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Both</a>
-    <a class="navbar-brand" href="#deparment">Departments</a>  
-    <a class="navbar-brand" href="#employee">Employees</a>  
-  </nav>
-  <div id="department">
-    <DepartmentContainer/>
+    <nav class="navbar navbar-dark bg-primary">
+      <Link to="/department" className='navbar-brand nav-link active'>DepartmentsTest</Link>
+      <Link to="/employee" className='navbar-brand nav-link active'>EmployeesTest</Link>            
+    </nav>
+    <Switch>
+      <Route exact path="/" component={DepartmentContainer, EmployeeContainer} />
+      <Route exact path="/department" component={DepartmentContainer} />
+      <Route exact path="/employee" component={EmployeeContainer} />
+    </Switch>
   </div>
-  <div id="employee">
-    <EmployeeContainer/>
-  </div>
-  </div>
-)
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root'), 
 );
+
+export default App;
